@@ -1,0 +1,26 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+inputs:
+  Manning_df:
+    type: pandas.CSVDataSet
+    filepath: data/01_raw/example_wp_log_peyton_manning.csv
+
+outputs:
+  forecast_model:
+    type: pickle.PickleDataSet
+    filepath: data/06_models/forecast_model.pkl
+  
+  forecast_df:
+    type: pandas.CSVDataSet
+    filepath: data/07_model_output/forecast_df.csv
+
+  forecast_plot:
+    type: kedro.io.PickleLocalDataSet
+    filepath: data/07_model_output/forecast_plot.pkl
+
+  components_plot:
+    type: kedro.io.PickleLocalDataSet
+    filepath: data/07_model_output/component_plot.pkl
